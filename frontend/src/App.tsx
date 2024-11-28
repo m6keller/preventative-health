@@ -7,8 +7,7 @@ import * as d3 from "d3";
 
 import "./index.css"
 import GameMasterPage from './GameMasterPage';
-
-const BASE_URL = "https://preventative-health-mlm8.vercel.app/"; // "http://localhost:3000";
+import { BASE_URL } from './consts';
 
 interface ProfileSelectorProps {
   setPlayerId: Dispatch<SetStateAction<string | null>>;

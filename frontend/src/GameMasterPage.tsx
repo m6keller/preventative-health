@@ -1,6 +1,7 @@
 // src/components/GamePage.tsx
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { BASE_URL } from "./consts";
 
 interface GameState {
   id: string;
@@ -21,8 +22,6 @@ interface PlayerTurnInfo {
     exercise: number;
     rest: number;
 }
-
-const BASE_URL = "https://preventative-health-mlm8.vercel.app"; // "http://localhost:3000";
 
 
 function GameMasterPage () {

@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { BASE_URL } from "./consts";
 
 function CreateGame() {
   const [gameId, setGameId] = useState<string>("");
   const [turnMax, setTurnMax] = useState<number>(4);
   const navigate = useNavigate();
-
-  const BASE_URL = "https://preventative-health-mlm8.vercel.app/"; // "http://localhost:3000";
 
 
   const handleSubmit = async () => {
