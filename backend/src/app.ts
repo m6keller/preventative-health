@@ -11,35 +11,6 @@ const app: CustomExpressApp = express();
 const port = process.env.PORT || 3000;
 app.server = createServer(app);
 
-// // Middleware to handle CORS
-// app.use(cors({
-//   origin: 'https://frontend-preventativehealth.vercel.app',
-//   methods: 'GET, POST, OPTIONS, PUT, DELETE',
-//   allowedHeaders: 'Content-Type, Authorization',
-//   optionsSuccessStatus: 200
-// }));
-
-// app.use((req, res, next) => {
-//   console.log("REQ COMING IN");
-//   res.setHeader('Access-Control-Allow-Origin', '*');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-//   next();
-// });
-
-// // Middleware to handle CORS
-// app.use((req, res, next) => {
-//   res.setHeader('Access-Control-Allow-Origin', 'https://frontend-preventativehealth.vercel.app');
-//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-//   if (req.method === 'OPTIONS') {
-//       return res.status(200).end();
-//   }
-//   next();
-// });
-
-
-
 // Allow requests from localhost:5173 (React dev server)
 app.use(cors({
   origin: '*', // or '*' to allow all origins
@@ -307,7 +278,7 @@ app.get("/get-bad-events", (req: Request, res: Response) => {
     return;
   }
 
-  const newBadHealthEvents = getRandomElements(calculateBadHealthEvents(playerInfo.playerTurnsInfo, Number(turn)), 2); // TODO: this honestly doesnt really work but whatever
+  const newBadHealthEvents = getRandomElements(calculateBadHealthEvents(playerInfo.playerTurnsInfo, Number(turn)), 1); // TODO: this honestly doesnt really work but whatever
 
   playerInfo.badHealthEvents = [...playerInfo.badHealthEvents, ...newBadHealthEvents];
 
