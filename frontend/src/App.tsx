@@ -8,6 +8,8 @@ import * as d3 from "d3";
 import "./index.css"
 import GameMasterPage from './GameMasterPage';
 
+const BASE_URL = "https://preventative-health-mlm8-71i602wgk-m6kellers-projects.vercel.app"; // "http://localhost:3000";
+
 interface ProfileSelectorProps {
   setPlayerId: Dispatch<SetStateAction<string | null>>;
   gameId: string;
@@ -39,7 +41,7 @@ function ProfileSelector({setPlayerId, gameId, setGameId}: ProfileSelectorProps)
     setLoading(true); // Start loading
 
     try {
-      const response = await fetch('http://localhost:3000/create-player', {
+      const response = await fetch(`${BASE_URL}/create-player`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -185,7 +187,7 @@ function ChooseResourcePoints({ setGameStage, turnNumber, qualityOfLife, playerI
     if (totalResourcePoints == TARGET_RESOURCE_POINTS) {
       try {
 
-        const response = await fetch('http://localhost:3000/assign-activities', {
+        const response = await fetch(`${BASE_URL}/assign-activities`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -381,7 +383,7 @@ function Gameplay({gameId, playerId}: Readonly<GameplayProps>) {
     // will likely need to do something like this
     (async () => {
       try {
-        const response = await fetch(`http://localhost:3000/get-game?gameId=${gameId}`);
+        const response = await fetch(`${BASE_URL}/get-game?gameId=${gameId}`);
 
         if (response.ok) {
           const game = await response.json();
@@ -460,7 +462,7 @@ function ResultsPage({gameId, playerId, turnNumber, setGameStage, qualityOfLife,
     // Function to fetch the results
     const fetchResults = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/get-bad-events?gameId=${gameId}&turn=${turnNumber}&playerId=${playerId}`);
+        const response = await fetch(`${BASE_URL}/get-bad-events?gameId=${gameId}&turn=${turnNumber}&playerId=${playerId}`);
         if (response.ok) {
           const data = await response.json();
           
@@ -556,7 +558,7 @@ function WaitingRoom({ turnNumber, setTurnNumber, gameId, setGameStage, qualityO
     // Function to fetch the turn data
     const fetchTurnData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/get-turn?gameId=${gameId}`);
+        const response = await fetch(`${BASE_URL}/get-turn?gameId=${gameId}`);
         if (response.ok) {
           const data = await response.json();
           console.log("DATA FROM GET TURN", data);
