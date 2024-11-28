@@ -114,6 +114,15 @@ function ProfileSelector({setPlayerId, gameId, setGameId}: ProfileSelectorProps)
           <div className="animate-spin border-t-4 border-blue-500 border-solid rounded-full w-8 h-8"></div>
         </div>
       )}
+
+      <button
+        onClick={(() => {
+          navigate("/createGame");
+        })}
+        className="mt-10 bg-grey-500 text-white px-6 py-2 rounded hover:bg-grey-800"
+      >
+        Ignore this one haha
+      </button>
     </div>
   );
 };
