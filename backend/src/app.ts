@@ -11,10 +11,31 @@ const app: CustomExpressApp = express();
 const port = process.env.PORT || 3000;
 app.server = createServer(app);
 
-// Allow requests from localhost:5173 (React dev server)
+// Middleware to handle CORS
 app.use(cors({
-  origin: '*', // or '*' to allow all origins
+  origin: 'https://frontend-preventativehealth.vercel.app',
+  methods: 'GET, POST, OPTIONS, PUT, DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
+  optionsSuccessStatus: 200
 }));
+
+// // Middleware to handle CORS
+// app.use((req, res, next) => {
+//   res.setHeader('Access-Control-Allow-Origin', 'https://frontend-preventativehealth.vercel.app');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+//   if (req.method === 'OPTIONS') {
+//       return res.status(200).end();
+//   }
+//   next();
+// });
+
+
+
+// // Allow requests from localhost:5173 (React dev server)
+// app.use(cors({
+//   origin: '*', // or '*' to allow all origins
+// }));
 
 interface Game {
   id: string;
