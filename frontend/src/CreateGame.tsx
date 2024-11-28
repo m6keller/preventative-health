@@ -6,9 +6,12 @@ function CreateGame() {
   const [turnMax, setTurnMax] = useState<number>(4);
   const navigate = useNavigate();
 
+  const BASE_URL = "https://preventative-health-mlm8.vercel.app/"; // "http://localhost:3000";
+
+
   const handleSubmit = async () => {
     try {
-      const response = await fetch("http://localhost:3000/create-game", {
+      const response = await fetch(`${BASE_URL}/create-game`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

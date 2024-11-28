@@ -22,6 +22,9 @@ interface PlayerTurnInfo {
     rest: number;
 }
 
+const BASE_URL = "https://preventative-health-mlm8.vercel.app"; // "http://localhost:3000";
+
+
 function GameMasterPage () {
     const { gameId } = useParams<{ gameId: string }>();
     const [gameState, setGameState] = useState<GameState | null>(null);
@@ -30,7 +33,7 @@ function GameMasterPage () {
     useEffect(() => {
         (async () => {
             try {
-                const response = await fetch(`http://localhost:3000/get-players?gameId=${gameId}`);
+                const response = await fetch(`${BASE_URL}/get-players?gameId=${gameId}`);
 
                 if (response.ok) {
                     const { players } = await response.json();
@@ -47,7 +50,7 @@ function GameMasterPage () {
 
     const fetchGameState = async () => {
         try {
-            const response = await fetch(`http://localhost:3000/get-game?gameId=${gameId}`);
+            const response = await fetch(`${BASE_URL}/get-game?gameId=${gameId}`);
 
             if (response.ok) {
                 const game = await response.json();
@@ -63,7 +66,7 @@ function GameMasterPage () {
 
     const advanceTurn = async () => {
         try {
-            const response = await fetch("http://localhost:3000/advance-turn", {
+            const response = await fetch(`${BASE_URL}/advance-turn`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
