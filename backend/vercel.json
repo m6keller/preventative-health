@@ -17,7 +17,7 @@
       ]
     },
     {
-      "source": "https://frontend-preventativehealth.vercel.app/(.*)",
+      "source": "/frontend-preventativehealth.vercel.app/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" }
       ]
