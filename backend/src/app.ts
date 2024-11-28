@@ -19,13 +19,13 @@ app.server = createServer(app);
 //   optionsSuccessStatus: 200
 // }));
 
-app.use((req, res, next) => {
-  console.log("REQ COMING IN");
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
-  next();
-});
+// app.use((req, res, next) => {
+//   console.log("REQ COMING IN");
+//   res.setHeader('Access-Control-Allow-Origin', '*');
+//   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+//   next();
+// });
 
 // // Middleware to handle CORS
 // app.use((req, res, next) => {
@@ -40,10 +40,10 @@ app.use((req, res, next) => {
 
 
 
-// // Allow requests from localhost:5173 (React dev server)
-// app.use(cors({
-//   origin: '*', // or '*' to allow all origins
-// }));
+// Allow requests from localhost:5173 (React dev server)
+app.use(cors({
+  origin: '*', // or '*' to allow all origins
+}));
 
 interface Game {
   id: string;
