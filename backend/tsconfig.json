@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "outDir": "./dist", 
+    "rootDir": "./src",
+    "downlevelIteration": true,
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
