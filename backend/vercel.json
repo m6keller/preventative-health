@@ -6,6 +6,23 @@
       "use": "@vercel/node"
     }
   ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "dist/app.js" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "https://frontend-preventativehealth.vercel.app/(.*)",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }  
+  ],
   "routes": [
     {
        "src": "/(.*)",
