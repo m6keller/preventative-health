@@ -530,6 +530,7 @@ function EndResultsPage({gameId, playerId, qualityOfLife} : EndResultsPageProps)
     <div>
       <h1>End Results Page</h1>
       <div>Player {playerId}</div>
+      <div>Game ID {gameId}</div>
       <QualityOfLifeBar value={qualityOfLife} />
     </div>
   )
